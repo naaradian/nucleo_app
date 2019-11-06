@@ -437,15 +437,16 @@ void StartTask03(void const * argument)
 					  tmp = 0;
 					  cnt_cp++;
 				  } //tcnt
-	//  counter++;
-	//  if(!(counter % 500)) {
+	  counter++;
+	  if(!(counter % 500)) {
 	//   if(counter > TIME_WAIT_JUMP) {
 	//	  HAL_UART_DMAStop(&huart2);
 	//	  StartApp();
 	 //  }
 	//	  printfpd("\r> %d", counter / 500);
 		//  HAL_Delay(100);
-	//  }
+		  HAL_GPIO_TogglePin( GPIOG, GPIO_PIN_0); //to use interrupt
+	  }
 		  CheckWriteStorage();
 		  MyCheckLink();
 		  osDelay(1);

@@ -13,6 +13,7 @@ C_SRCS += \
 ../Src/lwip.c \
 ../Src/main.c \
 ../Src/remote.c \
+../Src/rtc.c \
 ../Src/spi.c \
 ../Src/stm32f4xx_hal_msp.c \
 ../Src/stm32f4xx_it.c \
@@ -36,6 +37,7 @@ OBJS += \
 ./Src/lwip.o \
 ./Src/main.o \
 ./Src/remote.o \
+./Src/rtc.o \
 ./Src/spi.o \
 ./Src/stm32f4xx_hal_msp.o \
 ./Src/stm32f4xx_it.o \
@@ -59,6 +61,7 @@ C_DEPS += \
 ./Src/lwip.d \
 ./Src/main.d \
 ./Src/remote.d \
+./Src/rtc.d \
 ./Src/spi.d \
 ./Src/stm32f4xx_hal_msp.d \
 ./Src/stm32f4xx_it.d \
