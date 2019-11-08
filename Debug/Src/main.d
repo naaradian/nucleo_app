@@ -98,7 +98,8 @@ Src/main.o: ../Src/main.c \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Middlewares/Third_Party/LwIP/src/include/lwip/ip6.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Middlewares/Third_Party/LwIP/src/include/lwip/prot/udp.h \
- D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/storage.h
+ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/storage.h \
+ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h
 
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/main.h:
 
@@ -299,3 +300,5 @@ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Middlewares/T
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Middlewares/Third_Party/LwIP/src/include/lwip/prot/udp.h:
 
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/storage.h:
+
+D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h:

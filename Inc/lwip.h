@@ -78,6 +78,8 @@
  extern void MyCheckLink(void);
  extern void MX_LWIP_Init(void);
  extern void My_ChangeIp(void);
+ extern void MyReadPhy(uint16_t , uint32_t );
+ extern void MyWritePhy(uint16_t , uint32_t);
 /* USER CODE END 0 */
 
 /* Global Variables ----------------------------------------------------------*/

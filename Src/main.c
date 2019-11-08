@@ -62,6 +62,8 @@
 /* USER CODE BEGIN Includes */
 #include "tftpserver.h"
 #include "storage.h"
+#include "stm32f4xx_hal_rtc_ex.h" //recommended for rtc
+#include "rtc.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -133,6 +135,7 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
   NVIC_SetVectorTable(NVIC_VectTab_FLASH, USER_FLASH_FIRST_PAGE_ADDRESS);
+  HAL_RTCEx_EnableBypassShadow(&hrtc);  //recommended for rtc
   ReadStorage();  //for have property mac
   /* USER CODE END 2 */
 

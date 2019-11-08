@@ -89,24 +89,40 @@ void My_ChangeIp(void) {
 	  netif_set_addr(&gnetif, &ipaddr, &netmask,&gw);
 }
 
+void MyReadPhy(uint16_t PHYReg, uint32_t RegValue) {
+HAL_ETH_ReadPHYRegister(&heth, PHYReg, &RegValue); // Clears PHY intterrupt output
+printfpd("\n\r 0x%x ", RegValue);
+}
+
+void MyWritePhy(uint16_t PHYReg, uint32_t RegValue) {
+HAL_ETH_WritePHYRegister(&heth, PHYReg, RegValue); // Clears PHY intterrupt output
+printfpd("\n\r 0x%x ", RegValue);
+}
+
 void MyCheckLink(void) {
-/*
+
 	uint32_t regvalue=0;
-	static unsigned char prev_state = 0;
+	static unsigned char prev_state = 1;
 //	HAL_ETH_ReadPHYRegister(&heth, PHY_MISR, &regvalue); // Clears PHY intterrupt output
-	HAL_ETH_ReadPHYRegister(&heth, PHY_SR, &regvalue); // Get Link Status
-	unsigned char linkup= !(regvalue & PHY_LINK_STATUS);
+//	HAL_ETH_ReadPHYRegister(&heth, PHY_SR, &regvalue); // Get Link Status
+	HAL_ETH_ReadPHYRegister(&heth, 1, &regvalue); // Get Link Status
+	unsigned char linkup= regvalue & 4;
 
 	if(linkup && !prev_state) {
 		prev_state = 1;
-	//	netif_set_link_up(&gnetif);
-		printf("\n\r Link! \n");
+		netif_set_link_up(&gnetif);
+		netif_set_up(&gnetif);
+		ethernetif_update_config(&gnetif);
+	//	printfp("\n\r Link! \n");
 	}
 	else if(!linkup && prev_state) {
 		prev_state = 0;
-		printf("\n\r No Link! \n");
+		netif_set_link_down(&gnetif);
+		netif_set_down(&gnetif);
+		ethernetif_update_config(&gnetif);
+	//	printfp("\n\r No Link! \n");
 	}
-*/
+/*
 	  if (netif_is_link_up(&gnetif))
 	  {
 	  }
@@ -116,6 +132,7 @@ void MyCheckLink(void) {
 		netif_set_up(&gnetif);
 		ethernetif_update_config(&gnetif);
 	  }
+	  */
 }
 /* USER CODE END 2 */
 

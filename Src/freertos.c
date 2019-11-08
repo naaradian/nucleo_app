@@ -400,6 +400,7 @@ void StartTask03(void const * argument)
 	 // uint32_t cnt_tr = 0;
 	  uint32_t cnt_cp = 0;
 	//  flag_rcv = 0;
+	  uint32_t tmp1;
 	  char* Buf = malloc(25);
 	  osSemaphoreRelease (myBinarySem02_USART2THandle);
 	  HAL_UART_Receive_DMA(&huart2,testDataToReceiveU, U2_BUFF_SIZE); //start receive
@@ -443,12 +444,17 @@ void StartTask03(void const * argument)
 	//	  HAL_UART_DMAStop(&huart2);
 	//	  StartApp();
 	 //  }
-	//	  printfpd("\r> %d", counter / 500);
+		 // MyReadPhy(PHY_SR, tmp1);  //0x41
+	//	  MyReadPhy(0, tmp1);  //0x3000 0x1100
+	//	  MyReadPhy(1, tmp1);  //0x7809 0x782d view link! 0x4 bit
+		 // printfpd("\n\r> %d", counter / 500);
 		//  HAL_Delay(100);
 		  HAL_GPIO_TogglePin( GPIOG, GPIO_PIN_0); //to use interrupt
-	  }
 		  CheckWriteStorage();
 		  MyCheckLink();
+	  }
+	//	  CheckWriteStorage();
+	//	  MyCheckLink();
 		  osDelay(1);
   } //for
   /* USER CODE END StartTask03 */
