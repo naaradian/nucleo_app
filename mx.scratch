@@ -9,6 +9,7 @@
 
 <filestoremove>
 	<file>
+	   		<name>..\Src\stm32f4xx_hal_timebase_TIM.c</name>
 	</file>
 </filestoremove>
 

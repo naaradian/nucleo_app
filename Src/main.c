@@ -50,10 +50,12 @@
 #include "main.h"
 #include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
+#include "adc.h"
 #include "dma.h"
 #include "lwip.h"
 #include "rtc.h"
 #include "spi.h"
+#include "tim.h"
 #include "usart.h"
 #include "usb_device.h"
 #include "wwdg.h"
@@ -101,7 +103,6 @@ void printfpd(char * c, unsigned long d) {
 /* USER CODE END 0 */
 
 int main(void)
-
 {
 
   /* USER CODE BEGIN 1 */
@@ -132,11 +133,19 @@ int main(void)
   MX_USART2_UART_Init();
   MX_WWDG_Init();
   MX_RTC_Init();
+  MX_ADC1_Init();
+  MX_TIM1_Init();
+  MX_TIM2_Init();
 
   /* USER CODE BEGIN 2 */
   NVIC_SetVectorTable(NVIC_VectTab_FLASH, USER_FLASH_FIRST_PAGE_ADDRESS);
   HAL_RTCEx_EnableBypassShadow(&hrtc);  //recommended for rtc
   ReadStorage();  //for have property mac
+  //HAL_TIM_Base_Start(&htim1);
+  HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_1); //output compare mode
+  //HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2); //pwm mode
+  HAL_TIM_OC_Start(&htim2, TIM_CHANNEL_1); //output compare mode
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

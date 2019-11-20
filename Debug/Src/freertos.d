@@ -21,6 +21,8 @@ Src/freertos.o: ../Src/freertos.c \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
+ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h \
+ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_eth.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
@@ -30,6 +32,8 @@ Src/freertos.o: ../Src/freertos.c \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
+ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
+ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_wwdg.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h \
@@ -88,7 +92,10 @@ Src/freertos.o: ../Src/freertos.c \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Middlewares/Third_Party/LwIP/src/include/lwip/sockets.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Middlewares/Third_Party/LwIP/src/include/lwip/errno.h \
  D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/spi.h \
- D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/usart.h
+ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/usart.h \
+ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/adc.h \
+ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/tim.h \
+ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/rtc.h
 
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 
@@ -134,6 +141,10 @@ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32
 
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
 
+D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:
+
+D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h:
+
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_eth.h:
 
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
@@ -151,6 +162,10 @@ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h:
 
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
+
+D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
+
+D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
@@ -269,3 +284,9 @@ D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Middlewares/T
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/spi.h:
 
 D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/usart.h:
+
+D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/adc.h:
+
+D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/tim.h:
+
+D:/Users/user/keil/stm32cubemx/three_discav/nucleo144_tcp_udp_uart/Inc/rtc.h:

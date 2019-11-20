@@ -64,6 +64,10 @@
 #include "string.h"
 #include "spi.h"
 #include "usart.h"
+#include "adc.h"
+#include "tim.h"
+#include "rtc.h"
+
 //#include "stm32f4xx_dma.h"
 //#include "Trace.h"
 
@@ -74,6 +78,7 @@
 osThreadId defaultTaskHandle;
 osThreadId myTask02Handle;
 osThreadId myTask03Handle;
+osThreadId myTask04Handle;
 osSemaphoreId myBinarySem01_SPI1THandle;
 osSemaphoreId myBinarySem02_USART2THandle;
 osSemaphoreId myBinarySem03_USART2RHandle;
@@ -98,6 +103,7 @@ unsigned long counter = 0;
 void StartDefaultTask(void const * argument);
 void StartTask02(void const * argument);
 void StartTask03(void const * argument);
+void StartTask04(void const * argument);
 
 extern void MX_USB_DEVICE_Init(void);
 extern void MX_LWIP_Init(void);
@@ -110,6 +116,23 @@ extern uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
 void CheckWriteStorage(void) {
 	if(write_cnt) write_cnt--;
 	if(write_cnt == 1) WriteStorage();
+}
+
+#define tV_25   0.76f //1.34f      //  25 °C.
+#define tSlope  0.0025f //0.0043f    // du(V) / dt(grad).
+#define Vref    3.3f       // ADC (v).
+
+int32_t CalcTemp(uint32_t data){
+	int32_t ret;
+double temp;
+  //ok  temp = (float)data;
+     temp = (double) ((double)data * (double)Vref)/(double)4096;
+ //    temp = (tV_25-temp)/tSlope + 25;
+     temp = (temp - tV_25)/tSlope + 25;
+ //    temp = temp * 16;
+    // temp = -0.1;
+     ret =(int32_t)temp;
+return ret; //(int32_t)data;
 }
 /* USER CODE END FunctionPrototypes */
 
@@ -159,6 +182,10 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of myTask03 */
   osThreadDef(myTask03, StartTask03, osPriorityIdle, 0, 512);
   myTask03Handle = osThreadCreate(osThread(myTask03), NULL);
+
+  /* definition and creation of myTask04 */
+  osThreadDef(myTask04, StartTask04, osPriorityIdle, 0, 128);
+  myTask04Handle = osThreadCreate(osThread(myTask04), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -399,6 +426,8 @@ void StartTask03(void const * argument)
 	 // uint32_t cnt_rcv = 0;
 	 // uint32_t cnt_tr = 0;
 	  uint32_t cnt_cp = 0;
+	  uint32_t dtemp = 0;
+	  int32_t temp = 0;
 	//  flag_rcv = 0;
 	  uint32_t tmp1;
 	  char* Buf = malloc(25);
@@ -449,6 +478,11 @@ void StartTask03(void const * argument)
 	//	  MyReadPhy(1, tmp1);  //0x7809 0x782d view link! 0x4 bit
 		 // printfpd("\n\r> %d", counter / 500);
 		//  HAL_Delay(100);
+		  //HAL_StatusTypeDef HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length)
+		  temp = CalcTemp(dtemp);
+	//t	  printfpd("\n\r> %d", temp);
+		  HAL_ADC_Stop_DMA(&hadc1);
+		  HAL_ADC_Start_DMA(&hadc1, &dtemp, sizeof(dtemp));
 		  HAL_GPIO_TogglePin( GPIOG, GPIO_PIN_0); //to use interrupt
 		  CheckWriteStorage();
 		  MyCheckLink();
@@ -458,6 +492,28 @@ void StartTask03(void const * argument)
 		  osDelay(1);
   } //for
   /* USER CODE END StartTask03 */
+}
+
+/* StartTask04 function */
+void StartTask04(void const * argument)
+{
+  /* USER CODE BEGIN StartTask04 */
+	 RTC_TimeTypeDef RTime;
+	 unsigned long cnt = 0;
+	 char Buff[20];
+  /* Infinite loop */
+  for(;;)
+  {
+   cnt++;
+   if(cnt > 1000) {
+   HAL_RTC_GetTime(&hrtc, &RTime, RTC_FORMAT_BIN); // RTC_FORMAT_BCD);
+   sprintf(Buff, "\n\r%02d:%02d:%02d ", RTime.Hours, RTime.Minutes, RTime.Seconds);
+   printfp(Buff);
+   cnt = 0;
+   }
+    osDelay(1);
+  }
+  /* USER CODE END StartTask04 */
 }
 
 /* USER CODE BEGIN Application */

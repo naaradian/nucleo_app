@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Src/Storage.c \
+../Src/adc.c \
 ../Src/dma.c \
 ../Src/ethernetif.c \
 ../Src/flash_if.c \
@@ -20,6 +21,7 @@ C_SRCS += \
 ../Src/syscalls.c \
 ../Src/system_stm32f4xx.c \
 ../Src/tftpserver.c \
+../Src/tim.c \
 ../Src/usart.c \
 ../Src/usb_device.c \
 ../Src/usbd_cdc_if.c \
@@ -29,6 +31,7 @@ C_SRCS += \
 
 OBJS += \
 ./Src/Storage.o \
+./Src/adc.o \
 ./Src/dma.o \
 ./Src/ethernetif.o \
 ./Src/flash_if.o \
@@ -44,6 +47,7 @@ OBJS += \
 ./Src/syscalls.o \
 ./Src/system_stm32f4xx.o \
 ./Src/tftpserver.o \
+./Src/tim.o \
 ./Src/usart.o \
 ./Src/usb_device.o \
 ./Src/usbd_cdc_if.o \
@@ -53,6 +57,7 @@ OBJS += \
 
 C_DEPS += \
 ./Src/Storage.d \
+./Src/adc.d \
 ./Src/dma.d \
 ./Src/ethernetif.d \
 ./Src/flash_if.d \
@@ -68,6 +73,7 @@ C_DEPS += \
 ./Src/syscalls.d \
 ./Src/system_stm32f4xx.d \
 ./Src/tftpserver.d \
+./Src/tim.d \
 ./Src/usart.d \
 ./Src/usb_device.d \
 ./Src/usbd_cdc_if.d \

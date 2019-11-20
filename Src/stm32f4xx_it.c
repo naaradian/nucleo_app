@@ -49,6 +49,7 @@ extern osSemaphoreId myBinarySem01_SPI1THandle;
 /* External variables --------------------------------------------------------*/
 extern ETH_HandleTypeDef heth;
 extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
+extern DMA_HandleTypeDef hdma_adc1;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 extern DMA_HandleTypeDef hdma_spi1_rx;
 extern SPI_HandleTypeDef hspi1;
@@ -95,7 +96,7 @@ void EXTI1_IRQHandler(void)
   /* USER CODE END EXTI1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
   /* USER CODE BEGIN EXTI1_IRQn 1 */
-  printfp(".");
+ // printfp(".");
   /* USER CODE END EXTI1_IRQn 1 */
 }
 
@@ -189,6 +190,20 @@ void DMA2_Stream3_IRQHandler(void)
   /* USER CODE BEGIN DMA2_Stream3_IRQn 1 */
   osSemaphoreRelease (myBinarySem01_SPI1THandle);
   /* USER CODE END DMA2_Stream3_IRQn 1 */
+}
+
+/**
+* @brief This function handles DMA2 stream4 global interrupt.
+*/
+void DMA2_Stream4_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream4_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream4_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_adc1);
+  /* USER CODE BEGIN DMA2_Stream4_IRQn 1 */
+
+  /* USER CODE END DMA2_Stream4_IRQn 1 */
 }
 
 /**
